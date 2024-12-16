@@ -1,0 +1,37 @@
+{
+  "education": [
+    {
+      "name": "Veermata Jijabai Technological Institute (VJTI), Mumbai",
+      "href": "https://vjti.ac.in",
+      "title": "Bachelor's of Technology",
+      "logo": "/vjti.png",
+      "start": "Nov 2022",
+      "end": "Current",
+      "description": [
+        "Pursuing a Bachelor's in Technology with a focus on innovative projects and research.",
+        "Active participant in technical and cultural events.",
+        "Nominated for the Smart India Hackathon (SIH)."
+      ],
+      "links": [
+        {
+          "name": "Research Project - Crop Detection using Machine Learning",
+          "href": "https://github.com/certainlyMohneeesh/FarmWise",
+          "icon": "globe"
+        }
+      ]
+    },
+    {
+      "name": "Shri Shivaji Science College, Nagpur",
+      "href": "https://sscnagpur.ac.in",
+      "title": "Junior College (11th and 12th - IT)",
+      "logo": "/shivajiscience.png",
+      "start": "Jun 2019",
+      "end": "May 2021",
+      "description": [
+        "Completed 11th and 12th education with a specialization in Information Technology (IT).",
+        "Built a strong foundation in programming, database management, and networking concepts.",
+        "Excelled in physics, mathematics, and IT, with active participation in science exhibitions and IT workshops."
+      ]
+    }
+  ]
+}

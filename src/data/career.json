@@ -1,0 +1,22 @@
+{
+  "career": [
+    {
+      "name": "Open to Work",
+      "href": "https://example.com",
+      "title": "Full Stack Developer",
+      "logo": "/open-to-work.png",
+      "start": "2024",
+      "description": [
+        "I'm currently open to new opportunities. Feel free to contact me for work purposes.",
+        "Let's build something amazing together!"
+      ],
+      "links": [
+        {
+          "name": "Contact",
+          "href": "https://www.linkedin.com/in/mohneesh-naidu",
+          "icon": "mail"
+        }
+      ]
+    }
+  ]
+}

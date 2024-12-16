@@ -1,0 +1,19 @@
+{
+  "socials": [
+    {
+      "name": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mohneesh-naidu",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/certainlyMohneeesh",
+      "icon": "github"
+    },
+    {
+      "name": "Email",
+      "href": "mailto:certainlymohneesh@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}
