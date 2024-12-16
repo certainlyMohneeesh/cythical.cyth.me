@@ -1,11 +1,13 @@
 "use client"
 import React from 'react';
 import styled from 'styled-components';
+import {useRouter} from 'next/navigation';
 
 const Button = () => {
+  const router = useRouter();
   return (
     <StyledWrapper>
-      <button className="reward-btn">
+      <button className="reward-btn" onClick={() => router.push('/surprise')}>
         <span className="IconContainer">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 60 20" className="box-top box">
             <path strokeLinecap="round" strokeWidth={4} stroke="#6A8EF6" d="M2 18L58 18" />

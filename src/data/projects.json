@@ -1,97 +1,107 @@
 {
   "projects": [
     {
-      "name": "Tradingview Telegram Alerts",
-      "description": "Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes",
-      "image": "/tv-tele-alerts.png",
+      "name": "Portfolio 2024 - Manga Style",
+      "description": "A modern portfolio showcasing frontend skills with manga styled bento layout.",
+      "href": "https://mohneesh.cyth.me",
+      "image": "/MangaPortfolio.png",
+      "tags": ["Framer Motion", "TailwindCSS", "Vercel", "Canva"],
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://mohneesh.cyth.me",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/certainlyMohneeesh/portfolio-blog-",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "name": "Farmwise",
+      "description": "The Crop Disease Prediction project is designed to help farmers detect diseases in crops, specifically cotton, using machine learning and computer vision techniques.",
+      "image": "/farmwise.png",
       "tags": [
         "Python",
         "FastAPI",
         "Docker",
-        "Fly.io",
-        "Selenium",
-        "Telegram Bot API"
+        "CNN - Resnet50, VGG16",
+        "Node.js",
+        "MongoDB",
+        "OpenCV"
       ],
       "links": [
         {
           "name": "Source",
-          "href": "https://github.com/tedawf/tradingview-telegram-alerts",
+          "href": "https://github.com/certainlyMohneeesh/FarmWise",
           "icon": "github"
         }
       ]
     },
     {
-      "name": "NFTVue",
-      "description": "Non-Fungible Tokens (NFTs) Gallery Viewer website that allows users to connect their crypto wallets to view and verify their tokens",
-      "href": "https://nftvue.vercel.app",
-      "image": "/nftvue.png",
+      "name": "Task Manager",
+      "description": "A modern, feature-rich task management application built using Next.js and shadcn/ui components, designed to streamline task organization and improve productivity.",
+      "href": "https://tskman.cyth.me",
+      "image": "/taskmanager.png",
       "tags": [
-        "NextJS",
+        "NextJS 14",
+        "TypeScript",
         "TailwindCSS",
-        "MetaMask",
-        "WalletConnect",
-        "Web3",
-        "NFTScan",
-        "HashKey DID"
+        "Framer Motion",
+        "React 19"
       ],
       "links": [
         {
           "name": "Website",
-          "href": "https://nftvue.vercel.app",
-          "icon": "globe"
-        }
-      ]
-    },
-    {
-      "name": "Portfolio 2023 (Outdated)",
-      "description": "Simple markdown portfolio made with Astro 🚀",
-      "href": "https://tedawf-dot-com.netlify.app",
-      "image": "/old-portfolio.png",
-      "tags": ["Astro", "TailwindCSS", "Netlify", "SEO"],
-      "links": [
-        {
-          "name": "Website",
-          "href": "https://tedawf-dot-com.netlify.app",
+          "href": "https://tskman.cyth.me",
           "icon": "globe"
         },
         {
           "name": "Source",
-          "href": "https://github.com/tedawf/portfolio-2023",
+          "href": "https://github.com/certainlyMohneeesh/task-manager",
           "icon": "github"
         }
       ]
     },
     {
-      "name": "Rapid Ride Fight (Final Year)",
-      "description": "3D capture-the-flag, multiplayer boat fighting, with smart AI and water graphics",
-      "href": "https://games.digipen.edu/games/rapid-ride-fight",
-      "image": "/rrf.png",
-      "tags": ["C/C++", "OpenGL", "Custom Game Engine", "3D"],
+      "name": "MySchedule",
+      "description": "Manage your time efficiently with our intuitive scheduling platform. Plan your days, organize meetings, and stay on top of your schedule.",
+      "href": "https://scheduler-calendar.vercel.app",
+      "image": "/MySchedule.png",
+      "tags": ["NextJS 14", "TailwindCSS", "postgreSQL", "Figma"],
       "links": [
         {
-          "name": "Gameplay",
-          "href": "https://www.youtube.com/watch?v=bge3fiypg5U",
-          "icon": "youtube"
+          "name": "Website",
+          "href": "https://scheduler-calendar.vercel.app",
+          "icon": "globe"
         },
         {
-          "name": "Trailer",
-          "href": "https://www.youtube.com/watch?v=PNAO-aI1Daw",
-          "icon": "youtube"
+          "name": "Source",
+          "href": "https://github.com/certainlyMohneeesh/scheduler-calendar",
+          "icon": "github"
         }
       ]
     },
     {
-      "name": "Glowing Under (2nd Year)",
-      "description": "2D platformer with a focus on puzzle-solving, no-death exploration and storytelling",
-      "href": "https://games.digipen.edu/games/glowing-under",
-      "image": "/gu.png",
-      "tags": ["C/C++", "OpenGL", "Custom Game Engine", "2D"],
+      "name": "CythBlog - My Personal Blogs",
+      "description": "A blog website to share my thoughts and experience",
+      "href": "https://blog.cyth.me",
+      "image": "/Blog.png",
+      "tags": ["React 19", "MongoDB", "NextJS 14", "Feature rich markdown support"],
       "links": [
         {
-          "name": "Trailer",
-          "href": "https://www.youtube.com/watch?v=u6RYwBZlSfg",
-          "icon": "youtube"
+          "name": "Website",
+          "href": "https://blog.cyth.me",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/certainlyMohneeesh/Blog",
+          "icon": "github"
         }
+
       ]
     }
   ]
