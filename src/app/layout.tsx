@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={cn(
-          "mx-auto flex min-h-screen max-w-3xl flex-col px-8 font-sans antialiased",
+          "mx-auto flex min-h-screen max-w-3xl flex-col px-8 font-sans antialiased content-visibility-auto contain-intrinsic-size-1000px",
           inter.variable,
           inika.variable,
         )}

@@ -78,12 +78,18 @@
 @layer base {
   * {
     @apply border-border;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    perspective: 1000;
+  }
+  html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
   body {
     @apply bg-background text-foreground;
     overscroll-behavior: none;
+    text-rendering: optimizeSpeed;
   }
   .title {
     @apply font-serif text-5xl tracking-wide decoration-border/75 decoration-2;
@@ -105,5 +111,8 @@
   }
   .input-error {
     @apply ml-1 mt-2 text-sm text-rose-400;
+  }
+  .will-change-transform {
+    will-change: transform;
   }
 }

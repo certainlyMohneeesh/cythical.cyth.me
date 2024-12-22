@@ -29,6 +29,8 @@ export default async function Home() {
           width={175}
           height={175}
           priority
+          loading="eager"
+          decoding="async"
         />
         <div className="flex flex-col">
           <h1 className="title text-5xl">Hi, Mohneesh here (you can also call me Cyth)</h1>
