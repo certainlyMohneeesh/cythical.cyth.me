@@ -78,9 +78,12 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
   body {
     @apply bg-background text-foreground;
+    overscroll-behavior: none;
   }
   .title {
     @apply font-serif text-5xl tracking-wide decoration-border/75 decoration-2;
