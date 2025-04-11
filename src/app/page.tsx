@@ -47,7 +47,7 @@ export default async function Home() {
             <ArrowDownRight className="size-5 animate-bounce" />
           </div> */}
           <section className="mt-8 flex items-center gap-8">
-            <Link href="/Mohneesh.pdf" target="_blank">
+            <Link href="/Mohneesh_resume.pdf" target="_blank">
               <Button variant="outline">
                 <span className="font-semibold">Resume</span>
                 <FileDown className="ml-2 size-5" />
