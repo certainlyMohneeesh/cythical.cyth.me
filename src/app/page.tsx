@@ -13,12 +13,15 @@ import Link from "next/link";
 import path from "path";
 import SurpriseButton from "@/components/ui/SurpriseButton";
 import LoaderCube from '@/components/ui/LoaderCube';
+import BlogCard from "@/components/BlogCard";
+import { fetchRecentBlogPosts } from "./lib/fetchRecentBlogPosts";
 
 const blogDirectory = path.join(process.cwd(), "content");
 const CYTH_BIRTH_YEAR = 2003;
 const LIMIT = 2; // max show 2
 
 export default async function Home() {
+  const recentPosts = await fetchRecentBlogPosts(3);
   return (
     <article className="mt-8 flex flex-col gap-16 pb-16">
       <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
@@ -83,8 +86,14 @@ export default async function Home() {
             text="view more"
           />
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recentPosts.length > 0 ? recentPosts.map((post) => (
+            <BlogCard key={post.id} post={post} />
+          )) : <p>No recent posts found.</p>}
+        </div>
+      </section>
 
-        <section>
+      <section>
         <div className="fixed bottom-8 left-8">
             <LoaderCube />
             </div>
@@ -101,7 +110,6 @@ export default async function Home() {
             </div>
             </section>
 
-      </section>
     </article>
   );
 }
