@@ -22,9 +22,10 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <Card className="flex flex-col border border-border/40 bg-background/80 shadow-lg rounded-xl overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-2xl duration-200">
       {post.image && (
-        <Link href={`https://blog.cyth.me/blog/${post.id}`}>
+        <Link href={`https://blog.cyth.me/blog/${post.id}`}
+          className="block bg-muted/50">
           <Image
-            src={post.image || ""}
+            src={post.image}
             alt={post.title}
             width={500}
             height={300}
@@ -44,22 +45,23 @@ export function BlogCard({ post }: BlogCardProps) {
             {post.excerpt}
           </p>
         )}
-        <div className="flex items-center gap-2 mt-auto text-xs text-muted-foreground">
+        <div className="flex items-center gap-2 mt-auto text-xs text-muted-foreground min-h-[32px]">
           {post.author?.image && (
             <Image
-              src={post.author?.image || ""}
-              alt={post.author?.name || "Author"}
-              width={20}
-              height={20}
-              className="rounded-full border"
+              src={post.author.image}
+              alt={post.author.name || "Author"}
+              width={24}
+              height={24}
+              className="rounded-full border aspect-square object-cover"
             />
           )}
           {post.author?.name && (
-            <span className="font-medium mr-1">{post.author.name}</span>
+            <span className="font-medium mr-1 truncate max-w-[100px]">{post.author.name}</span>
           )}
+          <div className="flex-1" />
           {post.createdAt && (
-            <Badge variant="secondary" className="ml-auto whitespace-nowrap">
-              {new Date(post.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+            <Badge variant="secondary" className="whitespace-nowrap px-2 py-1 text-xs font-normal">
+              {new Date(post.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
             </Badge>
           )}
         </div>
