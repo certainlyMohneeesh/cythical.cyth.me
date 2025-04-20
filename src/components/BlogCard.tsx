@@ -1,4 +1,5 @@
 import { Card, CardContent, CardTitle } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,7 +24,7 @@ export function BlogCard({ post }: BlogCardProps) {
       {post.image && (
         <Link href={`https://blog.cyth.me/blog/${post.id}`}>
           <Image
-            src={post.image}
+            src={post.image || ""}
             alt={post.title}
             width={500}
             height={300}
@@ -46,8 +47,8 @@ export function BlogCard({ post }: BlogCardProps) {
         <div className="flex items-center gap-2 mt-auto text-xs text-muted-foreground">
           {post.author?.image && (
             <Image
-              src={post.author.image}
-              alt={post.author.name || "Author"}
+              src={post.author?.image || ""}
+              alt={post.author?.name || "Author"}
               width={20}
               height={20}
               className="rounded-full border"
@@ -57,9 +58,9 @@ export function BlogCard({ post }: BlogCardProps) {
             <span className="font-medium mr-1">{post.author.name}</span>
           )}
           {post.createdAt && (
-            <span className="ml-auto whitespace-nowrap opacity-80">
+            <Badge variant="secondary" className="ml-auto whitespace-nowrap">
               {new Date(post.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
-            </span>
+            </Badge>
           )}
         </div>
       </CardContent>
