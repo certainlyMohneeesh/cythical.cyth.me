@@ -19,7 +19,7 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post }: BlogCardProps) {
-  // Fallback avatar in case the image is missing or broken
+  // Fallback avatar in case the image is missing
   const avatarFallback =
     "https://ui-avatars.com/api/?name=" + encodeURIComponent(post.author?.name || "U") + "&background=1e293b&color=fff&size=48";
 
@@ -41,7 +41,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <CardContent className="flex flex-col gap-3 p-5">
         <CardTitle className="text-lg font-semibold leading-tight mb-2 break-words whitespace-normal">
           <Link href={`https://blog.cyth.me/blog/${post.id}`} className="hover:underline">
-            {post.title}
+            <span className="whitespace-normal">{post.title}</span>
           </Link>
         </CardTitle>
         {post.excerpt && (
@@ -52,12 +52,11 @@ export function BlogCard({ post }: BlogCardProps) {
         <div className="flex items-center gap-2 mt-auto text-xs text-muted-foreground min-h-[32px]">
           <div className="flex items-center gap-2 min-w-0">
             <Image
-              src={post.author?.image || avatarFallback}
+              src={post.author?.image ? post.author.image : avatarFallback}
               alt={post.author?.name || "Author"}
               width={24}
               height={24}
               className="rounded-full border aspect-square object-cover bg-muted"
-              onError={(e: any) => { e.currentTarget.src = avatarFallback; }}
             />
             {post.author?.name && (
               <span className="font-medium truncate max-w-[100px]">{post.author.name}</span>
