@@ -1,82 +1,65 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import { useState } from "react";
+import { Home, BarChart, BookText, Mail } from "lucide-react";
 
 const navLinks = [
   {
     name: "Home",
     href: "/",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/></svg>
-    ),
+    icon: <Home size={24} strokeWidth={1.7} />,
   },
   {
     name: "Projects",
     href: "/projects",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="13" width="7" height="8"/><rect x="14" y="3" width="7" height="18"/></svg>
-    ),
+    icon: <BarChart size={24} strokeWidth={1.7} />,
   },
   {
     name: "Blog",
     href: "https://blog.cyth.me",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="17 21 12 16 7 21"/></svg>
-    ),
+    icon: <BookText size={24} strokeWidth={1.7} />,
   },
   {
     name: "Contact",
     href: "/contact",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3"/><path d="M21 10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7"/><path d="M7 10v4h10v-4"/></svg>
-    ),
+    icon: <Mail size={24} strokeWidth={1.7} />,
   },
 ];
 
 export default function Sidebar() {
-  const [open, setOpen] = useState(true);
   return (
     <aside
-      className={`fixed top-0 left-0 z-50 h-full w-64 bg-background/90 border-r border-border shadow-lg flex flex-col transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}
-      style={{ backdropFilter: "blur(8px)" }}
+      className={`
+        z-50 bg-[rgba(20,20,30,0.55)] shadow-2xl transition-all duration-300 ease-in-out backdrop-blur-2xl
+        fixed
+        flex-row left-1/2 bottom-2 -translate-x-1/2 w-[95vw] max-w-xs rounded-xl px-2 py-2
+        md:flex md:flex-col md:left-4 md:top-auto md:bottom-4 md:-translate-x-0 md:-translate-y-0 md:w-20 md:max-w-[4.5rem] md:rounded-2xl md:px-0 md:py-2
+        lg:left-0 lg:top-1/2 lg:bottom-auto lg:-translate-x-0 lg:-translate-y-1/2 lg:w-16 lg:hover:w-56 lg:max-w-none lg:rounded-2xl lg:px-0 lg:py-0
+      `}
     >
-      {/* Logo and toggle */}
-      <div className="flex items-center justify-between h-16 px-6 border-b border-border">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          {/* Replace with your logo as needed */}
-          <span className="text-primary">Cythical</span>
-          <span className="hidden md:inline text-muted-foreground">Labs</span>
-        </Link>
-        <button
-          className="md:hidden p-2 rounded hover:bg-accent"
-          onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle sidebar"
-        >
-          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-      {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto py-6">
-        <ul className="flex flex-col gap-2 px-4">
+      <nav className="flex flex-row md:flex-col justify-center py-2 md:py-4 w-full">
+        <ul className="flex flex-row md:flex-col gap-2 items-center w-full justify-center">
           {navLinks.map((nav, id) => (
-            <li key={id}>
+            <li key={id} className="w-full">
               <Link
                 href={nav.href}
-                className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-accent transition-colors text-base font-medium"
+                className="flex items-center justify-center md:justify-start gap-4 px-3 py-3 rounded-xl hover:bg-accent/40 transition-all duration-200 text-base font-medium group/sidebar-item w-full"
                 target={nav.href.startsWith("http") ? "_blank" : undefined}
                 rel={nav.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
-                <span className="text-xl">{nav.icon}</span>
-                <span>{nav.name}</span>
+                <span className="text-xl flex-shrink-0 transition-transform duration-200 group-hover/sidebar-item:scale-110 text-white">
+                  {nav.icon}
+                </span>
+                <span className="whitespace-nowrap opacity-0 group-hover/sidebar-item:opacity-100 group-hover/sidebar-item:ml-2 transition-all duration-300 hidden md:inline-block text-white">
+                  {nav.name}
+                </span>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      {/* Theme toggle at the bottom */}
-      <div className="p-4 border-t border-border">
-        <ThemeToggle />
-      </div>
     </aside>
   );
 }
