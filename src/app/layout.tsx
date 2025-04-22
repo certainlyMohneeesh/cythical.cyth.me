@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Providers from "@/components/Providers";
+import Sidebar from "@/components/Sidebar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inika, Inter } from "next/font/google";
@@ -35,8 +35,9 @@ export default function RootLayout({
       >
       <TrailingCurves />
         <Providers>
-          <Header />
-          <main className="grow">{children}</main>
+          <Sidebar />
+          {/* <Header /> */}  
+          <main className="grow ml-0 md:ml-64">{children}</main>
           <Footer />
         </Providers>
       </body>
