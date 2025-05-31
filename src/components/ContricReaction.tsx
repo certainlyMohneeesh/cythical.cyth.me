@@ -46,14 +46,10 @@ interface ContricReactionProps {
   enablePulse?: boolean;
 }
 
-/**
- * ContricReaction - A reactive component that creates concentric circles
- * that revolve around and follow the mouse pointer.
- */
 const ContricReaction: React.FC<ContricReactionProps> = ({
   circleCount = 5,
   maxSize = 100,
-  color = 'rgba(0, 0, 255, 0.3)',
+  color = 'rgba(0, 20, 230, 1)',
   rotationSpeed = 1,
   followPointer = true,
   followDelay = 100,
