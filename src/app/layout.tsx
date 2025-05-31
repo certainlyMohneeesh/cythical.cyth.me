@@ -3,12 +3,13 @@ import Sidebar from "@/components/Sidebar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inika, Inter } from "next/font/google";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
-import TrailingCurves from "@/components/TrailingCurves";
+// import TrailingCurves from "@/components/TrailingCurves";
 import ThemeToggle from "@/components/ThemeToggle";
 import { ThemeProvider } from "next-themes";
+import ContricReaction from "@/components/ContricReaction";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const inika = Inika({
@@ -59,7 +60,14 @@ export default function RootLayout({
             </Link>
             <ThemeToggle />
           </div>
-          <TrailingCurves />
+          {/* <TrailingCurves /> */}
+                <ContricReaction 
+                  circleCount={10}
+                  maxSize={150}
+                  color="rgba(59, 130, 246, 0.5)"
+                  rotationSpeed={8}
+                  enablePulse={true}
+                />
           <div className="flex flex-1 flex-row w-full">
             <Sidebar />
             <main className="grow flex flex-col items-center justify-center w-full">{children}</main>
