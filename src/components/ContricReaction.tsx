@@ -49,7 +49,7 @@ interface ContricReactionProps {
 const ContricReaction: React.FC<ContricReactionProps> = ({
   circleCount = 5,
   maxSize = 100,
-  color = 'rgba(255, 255, 255, 0)',
+  color = 'rgba(255, 255, 255, 1)',
   rotationSpeed = 1,
   followPointer = true,
   followDelay = 100,
