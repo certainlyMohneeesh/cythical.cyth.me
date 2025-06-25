@@ -18,7 +18,7 @@ import { fetchRecentBlogPosts } from "./lib/fetchRecentBlogPosts";
 
 const blogDirectory = path.join(process.cwd(), "content");
 const CYTH_BIRTH_YEAR = 2003;
-const LIMIT = 2; // max show 2
+const LIMIT = 4; // max show 2
 
 export default async function Home() {
   const recentPosts = await fetchRecentBlogPosts(3);

@@ -8,7 +8,7 @@
       "tags": ["Framer Motion", "TailwindCSS", "Vercel", "Canva"],
       "links": [
         {
-          "name": "Website",
+          "name": "Live Link",
           "href": "https://mohneesh.cyth.me",
           "icon": "globe"
         },
@@ -19,6 +19,28 @@
         }
       ]
     },
+
+        {
+      "name": "Parathaful - A Concept Showcase",
+      "description": "A concept showcase website featuring unique and bold designs, inspired by the vibrant culture of parathas.",
+      "href": "https://parathaful.cyth.me",
+      "image": "/parathaful.png",
+      "tags": ["React 19", "NextJS 15", "GSAP Animations", "TailwindCSS 4", "Figma"],
+      "links": [
+        {
+          "name": "Live Link",
+          "href": "https://parathaful.cyth.me",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/certainlyMohneeesh/parathaful",
+          "icon": "github"
+        }
+
+      ]
+    },
+
     {
       "name": "Farmwise",
       "description": "The Crop Disease Prediction project is designed to help farmers detect diseases in crops, specifically cotton, using machine learning and computer vision techniques.",
@@ -40,6 +62,28 @@
         }
       ]
     },
+
+    {
+      "name": "CythBlog - My Personal Blogs",
+      "description": "A blog website where I share my thoughts and experience",
+      "href": "https://blog.cyth.me",
+      "image": "/Blog.png",
+      "tags": ["React 19", "MongoDB", "NextJS 14", "Feature rich markdown support"],
+      "links": [
+        {
+          "name": "Live Link",
+          "href": "https://blog.cyth.me",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/certainlyMohneeesh/Blog",
+          "icon": "github"
+        }
+
+      ]
+    },
+
     {
       "name": "Task Manager",
       "description": "A modern, feature-rich task management application built using Next.js and shadcn/ui components, designed to streamline task organization and improve productivity.",
@@ -54,7 +98,7 @@
       ],
       "links": [
         {
-          "name": "Website",
+          "name": "Live Link",
           "href": "https://tskman.cyth.me",
           "icon": "globe"
         },
@@ -65,6 +109,7 @@
         }
       ]
     },
+
     {
       "name": "MySchedule",
       "description": "Manage your time efficiently with our intuitive scheduling platform. Plan your days, organize meetings, and stay on top of your schedule.",
@@ -73,7 +118,7 @@
       "tags": ["NextJS 14", "TailwindCSS", "postgreSQL", "Figma"],
       "links": [
         {
-          "name": "Website",
+          "name": "Live Link",
           "href": "https://scheduler-calendar.vercel.app",
           "icon": "globe"
         },
@@ -84,25 +129,26 @@
         }
       ]
     },
+
     {
-      "name": "CythBlog - My Personal Blogs",
-      "description": "A blog website to share my thoughts and experience",
-      "href": "https://blog.cyth.me",
-      "image": "/Blog.png",
-      "tags": ["React 19", "MongoDB", "NextJS 14", "Feature rich markdown support"],
+      "name": "OTPgen - OTP Generator",
+      "description": "A simple and secure OTP generator for two-factor authentication, ensuring your accounts are protected with an additional layer of security.",
+      "href": "https://otpgen.cyth.me",
+      "image": "/otpgen.png",
+      "tags": ["NextJS 14", "TailwindCSS", "TypeScript", "Twilio API"],
       "links": [
         {
-          "name": "Website",
-          "href": "https://blog.cyth.me",
+          "name": "Live Link",
+          "href": "https://otpgen.cyth.me",
           "icon": "globe"
         },
         {
           "name": "Source",
-          "href": "https://github.com/certainlyMohneeesh/Blog",
+          "href": "https://github.com/certainlyMohneeesh/OTP_Generator",
           "icon": "github"
         }
-
       ]
     }
+
   ]
 }
