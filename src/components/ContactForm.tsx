@@ -1,6 +1,5 @@
 "use client";
 
-import { sendEmail } from "@/lib/actions";
 import { ContactFormSchema } from "@/lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PaperPlaneIcon, ReloadIcon } from "@radix-ui/react-icons";
@@ -30,15 +29,25 @@ export default function ContactForm() {
   });
 
   const processForm: SubmitHandler<Inputs> = async (data) => {
-    const result = await sendEmail(data);
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    if (result.error) {
+      const result = await res.json();
+
+      if (!res.ok || result.error) {
+        toast.error("An error occurred! Please try again later.");
+        return;
+      }
+
+      toast.success("Message sent successfully!");
+      reset();
+    } catch {
       toast.error("An error occurred! Please try again later.");
-      return;
     }
-
-    toast.success("Message sent successfully!");
-    reset();
   };
 
   return (
