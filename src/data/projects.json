@@ -1,6 +1,26 @@
 {
   "projects": [
     {
+     "name": "Nesternity - The Calmest CRM",
+     "description": "Nesternity is your all-in-one workspace for managing clients, projects, tasks, and invoices — all from one calm, cozy hub.",
+     "href": "https://nesternity.cyth.me",
+     "image": "/nesternity.png",
+     "tags": [ "NextJS 15", "PostgreSQL", "Supabase Auth", "Zustand", "React-PDF-Renderer", "TailwindCSS 4", "Dnd Kit"],
+     "links": [
+       {
+         "name": "Live Link",
+         "href": "https://nesternity.cyth.me",
+         "icon": "globe"
+       },
+       {
+         "name": "Source",
+         "href": "https://github.com/certainlyMohneeesh/nesternity",
+         "icon": "github"
+       }
+    
+     ]
+    },
+    {
       "name": "Portfolio 2024 - Manga Style",
       "description": "A modern portfolio showcasing frontend skills with manga styled bento layout.",
       "href": "https://mohneesh.cyth.me",
@@ -62,6 +82,7 @@
         }
       ]
     },
+
 
     {
       "name": "CythBlog - My Personal Blogs",
