@@ -1,14 +1,15 @@
 {
   "career": [
     {
-      "name": "Open to Work",
-      "href": "https://example.com",
-      "title": "Full Stack Developer",
-      "logo": "",
-      "start": "2024",
+      "name": "Aditya Birla Grasim (TRADC)",
+      "href": "https://adityabirla.com",
+      "title": "Product Development Intern",
+      "logo": "/abg.png",
+      "start": "Jun 2025 - Aug 2025",
       "description": [
-        "I'm currently open to new opportunities. Feel free to contact me for work purposes.",
-        "Let's build something amazing together!"
+        "Designed and prototyped a sustainable performance sweatshirt using SeaCell fiber, managing the full product lifecycle from fiber selection to garment construction with a focus on material innovation, user comfort, and process optimization.",
+        "Collaborated cross-functionally with textile scientists, process engineers, and design leads to align performance, aesthetics, and manufacturability.",
+        "Delivered a structured technical dossier and product narrative—bridging R&D insights with consumer-facing use cases and sustainable market potential."
       ],
       "links": [
         {
