@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, CSSProperties } from 'react';
+import { useTheme } from "next-themes";
 
 interface ContricReactionProps {
   /**
@@ -49,17 +50,23 @@ interface ContricReactionProps {
 const ContricReaction: React.FC<ContricReactionProps> = ({
   circleCount = 3,
   maxSize = 100,
-  color = 'rgba(255, 255, 255, 1)',
+  color: colorProp,
   rotationSpeed = 2,
   followPointer = true,
   followDelay = 100,
   enablePulse = true,
 }) => {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number | null>(null);
   const targetPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // Determine ring color based on theme unless explicitly provided
+  const ringColor = colorProp ?? (resolvedTheme === 'dark' ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)');
   
   // Track mouse movement
   useEffect(() => {
@@ -110,7 +117,7 @@ const ContricReaction: React.FC<ContricReactionProps> = ({
         width: `${size}px`,
         height: `${size}px`,
         borderRadius: '50%',
-        border: `2px solid ${color}`,
+        border: `2px solid ${ringColor}`,
         backgroundColor: 'transparent',
         opacity: opacity,
         transform: 'translate(-50%, -50%)',
@@ -148,6 +155,8 @@ const ContricReaction: React.FC<ContricReactionProps> = ({
     transition: 'opacity 0.3s ease',
   };
   
+  if (!mounted) return null; // avoid theme-hydration mismatch
+
   return (
     <div ref={containerRef} style={containerStyle}>
       <style jsx global>{`

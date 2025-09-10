@@ -64,7 +64,6 @@ export default function RootLayout({
                 <ContricReaction 
                   circleCount={5}
                   maxSize={50}
-                  color="rgba(255, 255, 255, 1)"
                   rotationSpeed={500}
                   enablePulse={true}
                 />
