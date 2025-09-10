@@ -34,7 +34,8 @@ export function BlogCard({ post }: BlogCardProps) {
             width={500}
             height={300}
             className="h-40 w-full object-cover object-top"
-            priority
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </Link>
       )}

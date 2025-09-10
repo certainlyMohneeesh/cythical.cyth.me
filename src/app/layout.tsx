@@ -62,10 +62,10 @@ export default function RootLayout({
           </div>
           {/* <TrailingCurves /> */}
                 <ContricReaction 
-                  circleCount={10}
-                  maxSize={150}
-                  color="rgba(59, 130, 246, 0.5)"
-                  rotationSpeed={8}
+                  circleCount={5}
+                  maxSize={50}
+                  color="rgba(255, 255, 255, 1)"
+                  rotationSpeed={500}
                   enablePulse={true}
                 />
           <div className="flex flex-1 flex-row w-full">

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect, useRef, CSSProperties } from 'react';
 
@@ -47,10 +47,10 @@ interface ContricReactionProps {
 }
 
 const ContricReaction: React.FC<ContricReactionProps> = ({
-  circleCount = 5,
+  circleCount = 3,
   maxSize = 100,
-  color = 'rgba(255, 255, 255, 0)',
-  rotationSpeed = 1,
+  color = 'rgba(255, 255, 255, 1)',
+  rotationSpeed = 2,
   followPointer = true,
   followDelay = 100,
   enablePulse = true,
@@ -58,31 +58,39 @@ const ContricReaction: React.FC<ContricReactionProps> = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const rafId = useRef<number | null>(null);
+  const targetPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   
   // Track mouse movement
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      if (followPointer) {
-        setTimeout(() => {
-          setMousePosition({ x: event.clientX, y: event.clientY });
-        }, followDelay);
-      }
-      
-      if (!isVisible) {
-        setIsVisible(true);
-      }
+      if (!followPointer) return;
+      targetPos.current = { x: event.clientX, y: event.clientY };
+      if (!isVisible) setIsVisible(true);
     };
-    
-    const handleMouseLeave = () => {
-      setIsVisible(false);
+
+    const handleMouseLeave = () => setIsVisible(false);
+
+    // Smoothly interpolate towards target using rAF
+    const animate = () => {
+      const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+      // Map followDelay (ms) to a smoothing factor [0.08..0.3]
+      const t = Math.max(0.08, Math.min(0.3, 16 / Math.max(16, followDelay)));
+      setMousePosition((prev) => ({
+        x: lerp(prev.x, targetPos.current.x, t),
+        y: lerp(prev.y, targetPos.current.y, t),
+      }));
+      rafId.current = window.requestAnimationFrame(animate);
     };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    document.body.addEventListener('mouseleave', handleMouseLeave);
-    
+
+    rafId.current = window.requestAnimationFrame(animate);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.body.addEventListener("mouseleave", handleMouseLeave);
+
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.body.removeEventListener('mouseleave', handleMouseLeave);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.body.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [followPointer, followDelay, isVisible]);
   
@@ -128,7 +136,7 @@ const ContricReaction: React.FC<ContricReactionProps> = ({
     width: '100%',
     height: '100%',
     pointerEvents: 'none',
-    zIndex: 9999,
+  zIndex: 20,
     overflow: 'hidden',
   };
   

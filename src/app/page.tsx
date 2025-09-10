@@ -15,13 +15,26 @@ import SurpriseButton from "@/components/ui/SurpriseButton";
 import LoaderCube from '@/components/ui/LoaderCube';
 import BlogCard from "@/components/BlogCard";
 import { fetchRecentBlogPosts } from "./lib/fetchRecentBlogPosts";
+import { Suspense } from "react";
 
 const blogDirectory = path.join(process.cwd(), "content");
 const CYTH_BIRTH_YEAR = 2003;
 const LIMIT = 4; // max show 2
 
-export default async function Home() {
+async function RecentPosts() {
   const recentPosts = await fetchRecentBlogPosts(3);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {recentPosts.length > 0 ? (
+        recentPosts.map((post) => <BlogCard key={post.id} post={post} />)
+      ) : (
+        <p>No recent posts found.</p>
+      )}
+    </div>
+  );
+}
+
+export default async function Home() {
   return (
     <article className="mt-8 flex flex-col gap-16 pb-16">
       <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
@@ -86,11 +99,18 @@ export default async function Home() {
             text="view more"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentPosts.length > 0 ? recentPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          )) : <p>No recent posts found.</p>}
-        </div>
+        <Suspense
+          fallback={
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="animate-pulse h-56 rounded-xl bg-muted/30" />
+              ))}
+            </div>
+          }
+        >
+          {/* Server component streaming */}
+          <RecentPosts />
+        </Suspense>
       </section>
 
       <section>
