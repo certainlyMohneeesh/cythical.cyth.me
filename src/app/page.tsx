@@ -1,7 +1,9 @@
-import Experience from "@/components/Experience";
+import nextDynamic from "next/dynamic";
 import LinkWithIcon from "@/components/LinkWithIcon";
-import Projects from "@/components/Projects";
-import Socials from "@/components/Socials";
+import Socials from "@/components/Socials"; // simple component, render directly on server
+// Dynamic chunks to shrink initial graph (server-rendered with skeletons)
+const Experience = nextDynamic(() => import("@/components/Experience"), { loading: () => <div className="h-40 w-full animate-pulse rounded-md bg-muted/20" /> });
+const Projects = nextDynamic(() => import("@/components/Projects"), { loading: () => <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">{Array.from({length:2}).map((_,i)=><div key={i} className="h-40 rounded-lg bg-muted/20 animate-pulse" />)}</div> });
 import { Button } from "@/components/ui/Button";
 import {
   ArrowDownRight,
@@ -10,14 +12,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import path from "path";
+// Removed unused heavy path usage; keep build lean
 import SurpriseButton from "@/components/ui/SurpriseButton";
 import LoaderCube from '@/components/ui/LoaderCube';
 import BlogCard from "@/components/BlogCard";
 import { fetchRecentBlogPosts } from "./lib/fetchRecentBlogPosts";
 import { Suspense } from "react";
 
-const blogDirectory = path.join(process.cwd(), "content");
 const CYTH_BIRTH_YEAR = 2003;
 const LIMIT = 4; // max show 2
 

@@ -61,12 +61,7 @@ export default function RootLayout({
             <ThemeToggle />
           </div>
           {/* <TrailingCurves /> */}
-                <ContricReaction 
-                  circleCount={5}
-                  maxSize={50}
-                  rotationSpeed={500}
-                  enablePulse={true}
-                />
+          <ContricReaction circleCount={5} maxSize={50} rotationSpeed={10} enablePulse />
           <div className="flex flex-1 flex-row w-full">
             <Sidebar />
             <main className="grow flex flex-col items-center justify-center w-full">{children}</main>

@@ -45,16 +45,22 @@ interface ContricReactionProps {
    * @default true
    */
   enablePulse?: boolean;
+  /**
+   * Responsiveness factor (higher = closer to real cursor). Range 0.05 - 1.
+   * @default 0.6
+   */
+  responsiveness?: number;
 }
 
 const ContricReaction: React.FC<ContricReactionProps> = ({
   circleCount = 3,
   maxSize = 100,
   color: colorProp,
-  rotationSpeed = 2,
+  rotationSpeed = 10,
   followPointer = true,
   followDelay = 100,
   enablePulse = true,
+  responsiveness = 0.6,
 }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -78,15 +84,22 @@ const ContricReaction: React.FC<ContricReactionProps> = ({
 
     const handleMouseLeave = () => setIsVisible(false);
 
-    // Smoothly interpolate towards target using rAF
+    // Smooth, distance-aware interpolation using rAF
     const animate = () => {
       const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-      // Map followDelay (ms) to a smoothing factor [0.08..0.3]
-      const t = Math.max(0.08, Math.min(0.3, 16 / Math.max(16, followDelay)));
-      setMousePosition((prev) => ({
-        x: lerp(prev.x, targetPos.current.x, t),
-        y: lerp(prev.y, targetPos.current.y, t),
-      }));
+      setMousePosition((prev) => {
+        const dx = targetPos.current.x - prev.x;
+        const dy = targetPos.current.y - prev.y;
+        const dist = Math.hypot(dx, dy);
+        // Dynamic smoothing: larger distance => faster catch-up
+        const base = Math.min(1, Math.max(0.05, responsiveness));
+        const speedBoost = Math.min(0.9, dist / 500); // up to +0.9 when far
+        const t = base + speedBoost; // final interpolation factor
+        return {
+          x: lerp(prev.x, targetPos.current.x, t),
+          y: lerp(prev.y, targetPos.current.y, t),
+        };
+      });
       rafId.current = window.requestAnimationFrame(animate);
     };
 
@@ -99,7 +112,7 @@ const ContricReaction: React.FC<ContricReactionProps> = ({
       window.removeEventListener("mousemove", handleMouseMove);
       document.body.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [followPointer, followDelay, isVisible]);
+  }, [followPointer, followDelay, isVisible, responsiveness]);
   
   // Generate circles
   const renderCircles = () => {
