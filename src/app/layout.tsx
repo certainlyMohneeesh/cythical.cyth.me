@@ -20,7 +20,7 @@ const inika = Inika({
 
 export const metadata: Metadata = {
   title: "Cythical Labs",
-  description: "My personal site to present my work with everybody",
+  description: "Just who I am",
 };
 
 export default function RootLayout({
