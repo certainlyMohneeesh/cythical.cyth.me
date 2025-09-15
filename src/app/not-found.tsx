@@ -1,5 +1,10 @@
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import LinkWithIcon from "../components/LinkWithIcon";
+import dynamic from "next/dynamic";
+
+// Dynamically import LinkWithIcon to reduce initial bundle
+const LinkWithIcon = dynamic(() => import("../components/LinkWithIcon"), {
+  loading: () => <div className="animate-pulse bg-muted h-8 w-32 rounded"></div>,
+});
 
 export default function NotFound() {
   return (
