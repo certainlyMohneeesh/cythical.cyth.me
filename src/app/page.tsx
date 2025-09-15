@@ -16,6 +16,7 @@ import Link from "next/link";
 import SurpriseButton from "@/components/ui/SurpriseButton";
 import LoaderCube from '@/components/ui/LoaderCube';
 import BlogCard from "@/components/BlogCard";
+import { BlogCardSkeleton } from "@/components/BlogCardSkeleton";
 import { fetchRecentBlogPosts } from "./lib/fetchRecentBlogPosts";
 import { Suspense } from "react";
 
@@ -23,16 +24,59 @@ const CYTH_BIRTH_YEAR = 2003;
 const LIMIT = 4; // max show 2
 
 async function RecentPosts() {
-  const recentPosts = await fetchRecentBlogPosts(3);
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {recentPosts.length > 0 ? (
-        recentPosts.map((post) => <BlogCard key={post.id} post={post} />)
-      ) : (
-        <p>No recent posts found.</p>
-      )}
-    </div>
-  );
+  try {
+    const recentPosts = await fetchRecentBlogPosts(3);
+    
+    if (recentPosts.length === 0) {
+      return (
+        <div className="flex flex-col items-center justify-center p-8 text-center">
+          <p className="text-muted-foreground">
+            Blog posts are temporarily unavailable.
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            Visit{" "}
+            <a 
+              href="https://blog.cyth.me" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              blog.cyth.me
+            </a>{" "}
+            directly for the latest posts.
+          </p>
+        </div>
+      );
+    }
+    
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {recentPosts.map((post) => (
+          <BlogCard key={post.id} post={post} />
+        ))}
+      </div>
+    );
+  } catch (error) {
+    console.error('Error in RecentPosts component:', error);
+    return (
+      <div className="flex flex-col items-center justify-center p-8 text-center">
+        <p className="text-muted-foreground">
+          Unable to load recent blog posts.
+        </p>
+        <p className="text-sm text-muted-foreground mt-2">
+          Please try refreshing the page or visit{" "}
+          <a 
+            href="https://blog.cyth.me" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="underline hover:text-foreground"
+          >
+            blog.cyth.me
+          </a>
+        </p>
+      </div>
+    );
+  }
 }
 
 export default async function Home() {
@@ -104,7 +148,7 @@ export default async function Home() {
           fallback={
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="animate-pulse h-56 rounded-xl bg-muted/30" />
+                <BlogCardSkeleton key={i} />
               ))}
             </div>
           }

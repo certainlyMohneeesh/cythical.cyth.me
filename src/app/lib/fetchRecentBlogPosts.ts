@@ -14,31 +14,56 @@ export interface BlogPostPreview {
 
 export async function fetchRecentBlogPosts(limit = 3): Promise<BlogPostPreview[]> {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 3500); // 3.5s budget
+  const timeout = setTimeout(() => controller.abort(), 8000); // Increased to 8s for slower networks
+  
   try {
-    const res = await fetch(`https://blog.cyth.me/api/posts?limit=${limit}`, {
-      // Revalidate periodically to keep fast SSR while staying fresh
-      next: { revalidate: 300 },
-      // Force no-cookies and avoid slow caches in dev
-      cache: process.env.NODE_ENV === 'development' ? 'no-store' : 'force-cache',
+    const url = `https://blog.cyth.me/api/posts?limit=${limit}`;
+    
+    const res = await fetch(url, {
+      // Better production caching strategy
+      next: { revalidate: 600 }, // 10 minutes
+      cache: 'force-cache',
       signal: controller.signal,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'User-Agent': 'Portfolio-Site/1.0',
+      },
     });
-    if (!res.ok) return [];
+    
+    if (!res.ok) {
+      return [];
+    }
+    
     const data = await res.json();
-    // Ensure minimal safe shape
-    return Array.isArray(data)
-      ? data.slice(0, limit).map((p) => ({
-          id: p.id ?? p.slug ?? Math.random().toString(36).slice(2),
-          title: p.title ?? "Untitled",
-          slug: p.slug ?? String(p.id ?? ""),
-          image: p.image,
-          excerpt: p.excerpt,
-          author: p.author,
-          createdAt: p.createdAt,
-        }))
-      : [];
+    
+    // Handle different response formats
+    const posts = Array.isArray(data) ? data : (data.posts || data.data || []);
+    
+    if (!Array.isArray(posts)) {
+      return [];
+    }
+    
+    // Ensure minimal safe shape with better fallbacks
+    const normalizedPosts = posts.slice(0, limit).map((p, index) => ({
+      id: p.id ?? p.slug ?? `post-${Date.now()}-${index}`,
+      title: p.title ?? "Untitled Post",
+      slug: p.slug ?? p.id ?? `post-${Date.now()}-${index}`,
+      image: p.image || p.cover || p.thumbnail,
+      excerpt: p.excerpt || p.description || p.summary || "Read more...",
+      author: {
+        name: p.author?.name || p.authorName || "Mohneesh",
+        image: p.author?.image || p.author?.avatar || p.authorImage,
+      },
+      createdAt: p.createdAt || p.publishedAt || p.date || new Date().toISOString(),
+    }));
+    
+    console.log(`Successfully fetched ${normalizedPosts.length} blog posts`);
+    
+    return normalizedPosts;
+    
   } catch (e) {
-    // AbortError or network failure -> graceful fallback
+    // Return empty array for graceful fallback
     return [];
   } finally {
     clearTimeout(timeout);
