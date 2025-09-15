@@ -17,11 +17,11 @@ const endpoint = process.env.ASTRA_DB_API_ENDPOINT || "";
 const token = process.env.ASTRA_DB_APPLICATION_TOKEN || "";
 const collection = process.env.ASTRA_DB_COLLECTION || "";
 
-if (!endpoint || !token || !collection) {
-  throw new Error("Please set environmental variables for Astra DB!");
-}
-
 export async function getVectorStore() {
+  if (!endpoint || !token || !collection) {
+    throw new Error("Please set environmental variables for Astra DB!");
+  }
+  
   const { AstraDBVectorStore, OpenAIEmbeddings } = await loadDependencies();
   
   return AstraDBVectorStore.fromExistingIndex(
@@ -38,6 +38,10 @@ export async function getVectorStore() {
 }
 
 export async function getEmbeddingsCollection() {
+  if (!endpoint || !token || !collection) {
+    throw new Error("Please set environmental variables for Astra DB!");
+  }
+  
   const { DataAPIClient } = await loadDependencies();
   
   const client = new DataAPIClient(token);
