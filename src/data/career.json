@@ -1,8 +1,27 @@
 {
   "career": [
     {
+      "name": "MachaCo.store",
+      "href": "https://www.machaco.store",
+      "title": "Tech Lead (Co-Founder)",
+      "logo": "/Machaco.png",
+      "start": "Working",
+      "description": [
+        "Led technology strategy and execution for an emerging e-commerce brand, driving platform scalability and business alignment.",
+        "Architected and deployed a Next.js-based platform with integrated analytics to track KPIs and guide data-driven decisions.",
+        "Contributed to product R&D and strategic planning, ensuring technical solutions supported growth and market positioning."
+      ],
+      "links": [
+        {
+          "name": "Contact",
+          "href": "https://www.linkedin.com/in/mohneesh-naidu",
+          "icon": "mail"
+        }
+      ]
+    },
+    {
       "name": "Aditya Birla Grasim (TRADC)",
-      "href": "https://adityabirla.com",
+      "href": "https://www.adityabirla.com/",
       "title": "Product Development Intern",
       "logo": "/abg.png",
       "start": "Jun 2025 - Aug 2025",
