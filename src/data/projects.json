@@ -3,13 +3,13 @@
     {
      "name": "Nesternity - The Calmest CRM",
      "description": "Nesternity is your all-in-one workspace for managing clients, projects, tasks, and invoices — all from one calm, cozy hub.",
-     "href": "https://nesternity.cyth.me",
+     "href": "https://nesternity.cyth.app",
      "image": "/nesternity.png",
      "tags": [ "NextJS 15", "PostgreSQL", "Supabase Auth", "Zustand", "React-PDF-Renderer", "TailwindCSS 4", "Dnd Kit"],
      "links": [
        {
          "name": "Live Link",
-         "href": "https://nesternity.cyth.me",
+         "href": "https://nesternity.cyth.app",
          "icon": "globe"
        },
        {

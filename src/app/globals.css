@@ -1,12 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   :root {
+    color-scheme: light;
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
-    --border: 214.3 31.8% 91.4%;
+    --border: 220 13% 91%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
@@ -21,28 +20,13 @@
     --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 224 71.4% 4.1%;
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-
-    --sh-identifier: #354150;
-    --sh-keyword: #f47067;
-    --sh-string: #00a99a;
-    --sh-class: #8d85ff;
-    --sh-property: #4e8fdf;
-    --sh-entity: #6eafad;
-    --sh-jsxliterals: #bf7db6;
-    --sh-sign: #8996a3;
-    --sh-comment: #a19595;
   }
 
   .dark {
+    color-scheme: dark;
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
@@ -62,50 +46,61 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 216 12.2% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     overscroll-behavior: none;
   }
   .title {
-    @apply font-serif text-5xl tracking-wide decoration-border/75 decoration-2;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: 0.025em;
+    text-decoration-color: hsl(var(--border) / 0.75);
+    text-decoration-thickness: 2px;
   }
   .link {
-    @apply text-muted-foreground transition-colors hover:text-foreground;
+    color: hsl(var(--muted-foreground));
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .link:hover {
+    color: hsl(var(--foreground));
   }
   .prose pre {
-    @apply overflow-x-auto rounded-lg bg-accent px-5 py-4 text-sm;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    background-color: hsl(var(--accent));
+    padding: 1rem 1.25rem;
+    font-size: 0.875rem;
   }
   .prose pre code {
-    @apply p-0 leading-[1.75];
+    padding: 0;
+    line-height: 1.75;
   }
   .prose code {
-    @apply rounded-lg px-1 py-0.5;
+    border-radius: 0.375rem;
+    padding: 0.125rem 0.25rem;
   }
   .prose code span {
-    @apply font-medium;
+    font-weight: 500;
   }
   .input-error {
-    @apply ml-1 mt-2 text-sm text-rose-400;
+    margin-left: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #f43f5e;
   }
 }

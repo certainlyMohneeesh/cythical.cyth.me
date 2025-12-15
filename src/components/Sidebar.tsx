@@ -45,7 +45,7 @@ export default function Sidebar() {
             <li key={id} className="w-full">
               <Link
                 href={nav.href}
-                className="flex items-center justify-center md:justify-start gap-4 px-3 py-3 rounded-xl hover:bg-accent/40 transition-all duration-200 text-base font-medium group/sidebar-item w-full"
+                className="flex items-center justify-center md:justify-start gap-4 px-3 py-3 rounded-xl hover:bg-accent transition-all duration-200 text-base font-medium group/sidebar-item w-full hover:opacity-80"
                 target={nav.href.startsWith("http") ? "_blank" : undefined}
                 rel={nav.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >

@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   // Move serverComponentsExternalPackages to the correct location
   serverExternalPackages: [
     '@langchain/community',

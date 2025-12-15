@@ -1,5 +1,5 @@
 {
-  "name": "cythical.cyth.me",
+  "name": "cyth.dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,11 +13,7 @@
     "clean": "rm -rf .next"
   },
   "dependencies": {
-    "@datastax/astra-db-ts": "^1.4.1",
-    "@hookform/resolvers": "^3.9.0",
-    "@langchain/community": "^0.3.1",
-    "@langchain/core": "^0.3.2",
-    "@langchain/openai": "^0.3.0",
+    "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-icons": "^1.3.0",
@@ -28,43 +24,40 @@
     "ai": "^3.3.35",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
-    "langchain": "^0.3.2",
-    "lucide-react": "^0.441.0",
-    "next": "15.1.0",
+    "lucide-react": "^0.561.0",
+    "next": "16.0.10",
     "next-mdx-remote": "^5.0.0",
-    "next-themes": "^0.3.0",
+    "next-themes": "^0.4.6",
     "openai": "^4.61.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.53.0",
-    "react-markdown": "^9.0.1",
-    "resend": "^4.0.0",
-    "sonner": "^1.5.0",
+    "react-markdown": "^10.1.0",
+    "resend": "^6.6.0",
+    "sonner": "^2.0.7",
     "styled-components": "^6.1.13",
-    "sugar-high": "^0.7.0",
-    "tailwind-merge": "^2.5.2",
+    "sugar-high": "^0.9.5",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8"
+    "zod": "^4.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^20",
+    "@types/node": "^25.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/styled-components": "^5.1.34",
     "eslint": "^9",
-    "eslint-config-next": "15.1.0",
+    "eslint-config-next": "16.0.10",
     "postcss": "^8",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.6",
-    "tailwindcss": "^3.4.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.1.18",
     "ts-node": "^10.9.2",
     "typescript": "^5"
-  },
-  "resolutions": {
-    "@langchain/core": "0.3.1"
   }
 }
