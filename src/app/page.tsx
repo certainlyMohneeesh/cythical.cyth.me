@@ -1,6 +1,7 @@
 import nextDynamic from "next/dynamic";
 import LinkWithIcon from "@/components/LinkWithIcon";
 import Socials from "@/components/Socials"; // simple component, render directly on server
+import Hero from "@/components/Hero";
 // Dynamic chunks to shrink initial graph (server-rendered with skeletons)
 const Experience = nextDynamic(() => import("@/components/Experience"), { loading: () => <div className="h-40 w-full animate-pulse rounded-md bg-muted/20" /> });
 const Projects = nextDynamic(() => import("@/components/Projects"), { loading: () => <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">{Array.from({length:2}).map((_,i)=><div key={i} className="h-40 rounded-lg bg-muted/20 animate-pulse" />)}</div> });
@@ -82,41 +83,16 @@ async function RecentPosts() {
 export default async function Home() {
   return (
     <article className="mt-8 md:mt-32 flex flex-col gap-16 pb-16">
-      <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
-        <Image
-          className="rounded-lg"
-          src="/mohneesh.jpg"
-          alt="Photo of Cyth"
-          width={175}
-          height={175}
-          priority
-        />
-        <div className="flex flex-col">
-          <h1 className="title text-5xl">Hi, Mohneesh here (you can also call me Cyth)</h1>
-          <p className="mt-4 font-light">
-            {/* Update my age */}
-            {new Date().getFullYear() - CYTH_BIRTH_YEAR}
-            -year-old <s>wannabe cook</s> software developer from India 🇮🇳
-          </p>
-          <p className="mt-2 font-light">
-          Building innovative web and mobile (eventually) solutions to bring your ideas to life. 
-          Whether it's designing sleek user interfaces or implementing robust backend systems, 
-          I transform visions into reality (exaggeration).
-          </p>
-          {/* <div className="mt-4 flex items-end gap-1">
-            <p className="font-semibold">Ask the chatbot anything about me</p>
-            <ArrowDownRight className="size-5 animate-bounce" />
-          </div> */}
-          <section className="mt-8 flex items-center gap-8">
-            <Link href="/Mohneesh_resume.pdf" target="_blank">
-              <Button variant="outline">
-                <span className="font-semibold">Resume</span>
-                <FileDown className="ml-2 size-5" />
-              </Button>
-            </Link>
-            <Socials />
-          </section>
-        </div>
+      <Hero />
+      
+      <section className="flex items-center justify-end gap-4 -mt-8">
+        <Link href="/Mohneesh_resume.pdf" target="_blank">
+          <Button variant="outline">
+            <span className="font-semibold">Resume</span>
+            <FileDown className="ml-2 size-5" />
+          </Button>
+        </Link>
+        <Socials />
       </section>
 
       <Experience />
