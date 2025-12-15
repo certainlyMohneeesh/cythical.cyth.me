@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/Separator";
 
 export default function ContactPage() {
   return (
-    <article className="mt-8 flex flex-col gap-8 pb-16">
+    <article className="mt-8 md:mt-32 flex flex-col gap-8 pb-16">
       <div>
         <h1 className="title mb-4">Let's connect! 💬</h1>
         <p className="text-muted-foreground text-lg">

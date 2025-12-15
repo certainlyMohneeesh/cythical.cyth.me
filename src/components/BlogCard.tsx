@@ -44,7 +44,7 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <Card className="flex flex-col border border-border/40 bg-background/80 shadow-lg rounded-xl overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-2xl duration-200">
       {post.image && (
-        <Link href={`https://blog.cyth.me/blog/${post.slug || post.id}`}
+        <Link href={`https://blog.cyth.dev/blog/${post.slug || post.id}`}
           className="block bg-muted/50">
           <Image
             src={post.image}
@@ -64,7 +64,7 @@ export function BlogCard({ post }: BlogCardProps) {
       )}
       <CardContent className="flex flex-col gap-3 p-5">
         <CardTitle className="text-lg font-semibold leading-tight mb-2 break-words whitespace-normal">
-          <Link href={`https://blog.cyth.me/blog/${post.slug || post.id}`} className="hover:underline">
+          <Link href={`https://blog.cyth.dev/posts/${post.slug || post.id}`} className="hover:underline">
             <span className="whitespace-normal">{post.title}</span>
           </Link>
         </CardTitle>

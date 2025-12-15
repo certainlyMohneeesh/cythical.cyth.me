@@ -4,7 +4,7 @@ const lastUpdated = "Sep 2024";
 
 export default function page() {
   return (
-    <article className="prose mt-8 pb-16 dark:prose-invert">
+    <article className="prose mt-8 md:mt-32 pb-16 dark:prose-invert">
       <div className="space-y-4">
         <h1 className="title text-5xl">Privacy Policy 🔒</h1>
         <p>Last refreshed: {lastUpdated}</p>

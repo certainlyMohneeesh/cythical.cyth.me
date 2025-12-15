@@ -81,7 +81,7 @@ async function RecentPosts() {
 
 export default async function Home() {
   return (
-    <article className="mt-8 flex flex-col gap-16 pb-16">
+    <article className="mt-8 md:mt-32 flex flex-col gap-16 pb-16">
       <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
         <Image
           className="rounded-lg"
@@ -134,11 +134,11 @@ export default async function Home() {
         <Projects limit={LIMIT} />
       </section>
 
-      <section className="flex flex-col gap-8">
+      <section id="recent-posts" className="flex flex-col gap-8">
         <div className="flex justify-between">
           <h2 className="title text-3xl">Recent posts</h2>
           <LinkWithIcon
-            href="https://blog.cyth.me"
+            href="https://blog.cyth.dev"
             position="right"
             icon={<ArrowRightIcon className="size-5" />}
             text="view more"

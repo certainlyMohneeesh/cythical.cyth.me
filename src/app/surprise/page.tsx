@@ -3,7 +3,7 @@ import SpotifyPlayer from "@/components/SpotifyPlayer";
 
 export default function SurprisePage() {
   return (
-    <article className="mt-8 flex flex-col gap-16 pb-16">
+    <article className="mt-8 md:mt-32 flex flex-col gap-16 pb-16">
       <section className="flex flex-col gap-8">
         <h1 className="title text-5xl">Surprise!</h1>
         <p className="text-xl text-muted-foreground">

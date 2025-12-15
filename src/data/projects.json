@@ -5,7 +5,7 @@
      "description": "Nesternity is your all-in-one workspace for managing clients, projects, tasks, and invoices — all from one calm, cozy hub.",
      "href": "https://nesternity.cyth.app",
      "image": "/nesternity.png",
-     "tags": [ "NextJS 15", "PostgreSQL", "Supabase Auth", "Zustand", "React-PDF-Renderer", "TailwindCSS 4", "Dnd Kit"],
+     "tags": [ "NextJS 16", "PostgreSQL", "Supabase Auth", "Zustand", "React-PDF-Renderer", "TailwindCSS 4", "Dnd Kit"],
      "links": [
        {
          "name": "Live Link",
@@ -20,36 +20,38 @@
     
      ]
     },
-    {
-      "name": "Portfolio 2024 - Manga Style",
-      "description": "A modern portfolio showcasing frontend skills with manga styled bento layout.",
-      "href": "https://mohneesh.cyth.me",
-      "image": "/MangaPortfolio.png",
-      "tags": ["Framer Motion", "TailwindCSS", "Vercel", "Canva"],
+
+        {
+      "name": "MGNREGA India - Data Visualization",
+      "description": "A data visualization project that presents insights from the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) scheme in India, utilizing shadcn to create interactive charts and graphs for better understanding of employment trends and fund allocation.",
+      "href": "https://mgnrega.cyth.app",
+      "image": "/mgnregapost.png",
+      "tags": ["React 19", "NextJS 16", "data.gov.in API", "Voice Input", "Figma"],
       "links": [
         {
           "name": "Live Link",
-          "href": "https://mohneesh.cyth.me",
+          "href": "https://mgnrega.cyth.app",
           "icon": "globe"
         },
         {
           "name": "Source",
-          "href": "https://github.com/certainlyMohneeesh/portfolio-blog-",
+          "href": "https://github.com/certainlyMohneeesh/mgnrega",
           "icon": "github"
         }
+        
       ]
     },
-
-        {
+    
+    {
       "name": "Parathaful - A Concept Showcase",
       "description": "A concept showcase website featuring unique and bold designs, inspired by the vibrant culture of parathas.",
-      "href": "https://parathaful.cyth.me",
-      "image": "/parathaful.png",
+      "href": "https://parathaful.cyth.app",
+      "image": "/parathafulpost.png",
       "tags": ["React 19", "NextJS 15", "GSAP Animations", "TailwindCSS 4", "Figma"],
       "links": [
         {
           "name": "Live Link",
-          "href": "https://parathaful.cyth.me",
+          "href": "https://parathaful.cyth.app",
           "icon": "globe"
         },
         {
@@ -57,10 +59,11 @@
           "href": "https://github.com/certainlyMohneeesh/parathaful",
           "icon": "github"
         }
-
+        
       ]
     },
 
+    
     {
       "name": "Farmwise",
       "description": "The Crop Disease Prediction project is designed to help farmers detect diseases in crops, specifically cotton, using machine learning and computer vision techniques.",
@@ -83,6 +86,25 @@
       ]
     },
 
+    {
+      "name": "Portfolio 2024 - Manga Style",
+      "description": "A modern portfolio showcasing frontend skills with manga styled bento layout.",
+      "href": "https://mohneesh.cyth.me",
+      "image": "/MangaPortfolio.png",
+      "tags": ["Framer Motion", "TailwindCSS", "Vercel", "Canva"],
+      "links": [
+        {
+          "name": "Live Link",
+          "href": "https://mohneesh.cyth.me",
+          "icon": "globe"
+        },
+        {
+          "name": "Source",
+          "href": "https://github.com/certainlyMohneeesh/portfolio-blog-",
+          "icon": "github"
+        }
+      ]
+    },
 
     {
       "name": "CythBlog - My Personal Blogs",

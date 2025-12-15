@@ -11,7 +11,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <article className="mt-8 flex flex-col gap-8 pb-16">
+    <article className="mt-8 md:mt-32 flex flex-col gap-8 pb-16">
       <div className="min-h-full px-4 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
         <div className="mx-auto max-w-max">
           <section className="sm:flex">

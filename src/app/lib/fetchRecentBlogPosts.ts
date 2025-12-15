@@ -17,7 +17,7 @@ export async function fetchRecentBlogPosts(limit = 3): Promise<BlogPostPreview[]
   const timeout = setTimeout(() => controller.abort(), 8000); // Increased to 8s for slower networks
   
   try {
-    const url = `https://blog.cyth.me/api/posts?limit=${limit}`;
+    const url = `https://blog.cyth.dev/api/v1/posts?limit=${limit}`;
     
     const res = await fetch(url, {
       // Better production caching strategy
