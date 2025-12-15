@@ -84,9 +84,14 @@ export default function Hero() {
           <div className="relative group">
             {/* Flag Badge - Top Left */}
             <div className="absolute -top-2 -left-2 z-20 shadow-md">
-               <span className="block w-12 h-8 bg-white rounded-sm overflow-hidden relative border border-border">
-                  <span className="flex items-center justify-center w-full h-full text-2xl leading-none">🇮🇳</span>
-               </span>
+               <div className="w-12 h-8 bg-transparent rounded-sm overflow-hidden relative border border-border">
+                    <Image 
+                      src="/indiaflag.png" 
+                      alt="India Flag" 
+                      fill 
+                      className="object-cover"
+                    />  
+               </div>
             </div>
 
             <div className="w-32 h-32 rounded-full border-[6px] border-card overflow-hidden bg-muted shadow-md relative z-10">
