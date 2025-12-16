@@ -96,7 +96,7 @@ export default function Hero() {
 
             <div className="w-32 h-32 rounded-full border-[6px] border-card overflow-hidden bg-muted shadow-md relative z-10">
               <Image 
-                src="/mohneesh.jpg" 
+                src="/mohneeshphoto.png" 
                 alt="Mohneesh" 
                 fill 
                 className="object-cover transition-transform duration-500 group-hover:scale-110" 
