@@ -41,6 +41,31 @@
         
       ]
     },
+
+            {
+      "name": "Deckhand - Control Your Presentation Decks from Anywhere",
+      "description": "A web application that allows users to control their presentation decks remotely using web socket by mobile devices also use as a teleprompter, enhancing the presentation experience with seamless navigation and interactivity.",
+      "href": "https://deckhand-nesternity.cyth.app",
+      "image": "/deckhandpost.png",
+      "tags": ["React 19", "NextJS 16", "WebSocket", "Teleprompter", "DigitalOcean Droplet"],
+      "links": [
+        {
+          "name": "Live Link",
+          "href": "https://deckhand-nesternity.cyth.app",
+          "icon": "globe"
+        },
+        {
+          "name": "Source Frontend",
+          "href": "https://github.com/certainlyMohneeesh/deckhand",
+          "icon": "github"
+        },
+        {
+          "name": "Source Backend",
+          "href": "https://github.com/certainlyMohneeesh/deckhand-socket",
+          "icon": "github"
+        }
+      ]
+    },
     
     {
       "name": "Parathaful - A Concept Showcase",
